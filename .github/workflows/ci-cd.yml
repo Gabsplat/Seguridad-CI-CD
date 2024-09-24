@@ -30,3 +30,9 @@ jobs:
       env:
         ADZUNA_API_KEY: ${{ secrets.ADZUNA_API_KEY }}
         ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }} 
+    - name: Deploy to production (RENDER)
+      uses: johnbeynon/render-deploy-action@v0.0.8
+      with:
+        service-id: ${{ secrets.SERVICE_ID }}
+        api-key: ${{ secrets.RENDER_API_KEY }}
+        wait-for-success: true
