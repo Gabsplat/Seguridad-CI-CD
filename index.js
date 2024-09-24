@@ -1,18 +1,35 @@
 const express = require("express");
 require("dotenv").config();
-const { getJobs } = require("./services/jobService");
+const { getJobs, getJobCategories } = require("./services/jobService");
 const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.send("sxsx World!");
+  res.send({
+    description: "TP 2 Seguridad + Github Actions + Adzuna API",
+    members: [
+      "Matías Ongay",
+      "Matías Vera",
+      "Gabriel Pérez Diez",
+      "Germán Hidalgo",
+    ],
+  });
 });
 
-app.get("/jobs", async (req, res) => {
+app.get("/jobs/:country", async (req, res) => {
+  const { country } = req.params;
+  console.log(country);
   const jobs = await getJobs("es");
   res.send(jobs);
 });
 
+app.get("/jobs/:country/category", async (req, res) => {
+  const { country } = req.params;
+  console.log(country);
+  const jobs = await getJobCategories("es");
+  res.send(jobs);
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
