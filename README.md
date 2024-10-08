@@ -2,15 +2,24 @@
 
 ## Descripción General del Proyecto
 
-Este proyecto es una aplicación Node.js para la cátedra de Seguridad (Universidad del Aconcagua) que se integra con la API de Adzuna para proporcionar funcionalidad de búsqueda de empleo.
+Este proyecto es una aplicación Node.js desarrollada para la cátedra de Seguridad de la Universidad del Aconcagua. Se integra con la API de Adzuna para proporcionar funcionalidad de búsqueda de empleo, priorizando la seguridad en el manejo de credenciales y la gestión de datos sensibles.
 
 ## Características Principales
 
-- Funcionalidad de búsqueda de empleo en múltiples países
-- Recuperación de categorías de empleo
-- Gestión segura de claves de API
-- Pipeline de Integración Continua y Despliegue Continuo (CI/CD)
-    - Utilización de [Render](https://render.com) para hacer deploy de la API.
+- Búsqueda de empleos en múltiples países mediante la API de Adzuna.
+- Recuperación de categorías de empleo.
+- Implementación de medidas de seguridad para la gestión de claves API.
+- Pipeline de CI/CD con GitHub Actions para automatizar pruebas y despliegues.
+- Despliegue automático en [Render](https://render.com).
+
+## Requisitos Previos
+
+- **Node.js** (versión 14.x o superior)
+- **npm** (versión 6.x o superior)
+- **Git** para clonar el repositorio
+- Cuenta en [Adzuna](https://developer.adzuna.com/overview) para obtener las credenciales necesarias.
+- Cuenta en [Render](https://render.com) para el despliegue.
+
 
 ## Medidas de Seguridad
 
@@ -51,6 +60,32 @@ Utilizamos Jest para probar nuestra aplicación. Nuestras pruebas incluyen verif
 
 
 Este pipeline se ejecuta en cada push o pull request a la rama principal, asegurando que el código pase por un proceso de construcción, pruebas y despliegue.
+
+## Instalación
+
+Cloná este repositorio en tu máquina local, ingesa al directorio e instala dependencias:
+```
+git clone https://github.com/Gabsplat/Seguridad-CI-CD.git
+cd Seguridad-CI-CD
+npm install
+```
+
+### Comandos para ejecutar el proyecto
+1. Buildear el proeycto
+   
+    ```
+    npm run build
+    ```
+3. Ejecutar los test
+   
+   ```
+    npm test
+    ```
+5. Iniciar el servidor en local
+   
+    ```
+    npm start
+    ```
 
 ## Contribuidores
 
