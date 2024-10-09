@@ -19,8 +19,9 @@ app.get("/", (req, res) => {
 app.get("/jobs/:country", async (req, res) => {
   const { country } = req.params;
   console.log(country);
+  let jobs;
   try {
-    const jobs = await getJobs(country);
+    jobs = await getJobs(country);
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
@@ -30,8 +31,9 @@ app.get("/jobs/:country", async (req, res) => {
 app.get("/jobs/:country/category", async (req, res) => {
   const { country } = req.params;
   console.log(country);
+  let jobs;
   try {
-    const jobs = await getJobCategories(country);
+    jobs = await getJobCategories(country);
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
