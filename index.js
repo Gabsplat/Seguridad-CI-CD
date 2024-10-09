@@ -19,14 +19,22 @@ app.get("/", (req, res) => {
 app.get("/jobs/:country", async (req, res) => {
   const { country } = req.params;
   console.log(country);
-  const jobs = await getJobs(country);
+  try {
+    const jobs = await getJobs(country);
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
   res.send(jobs);
 });
 
 app.get("/jobs/:country/category", async (req, res) => {
   const { country } = req.params;
   console.log(country);
-  const jobs = await getJobCategories(country);
+  try {
+    const jobs = await getJobCategories(country);
+  } catch (error) {
+    res.status(400).send({ error: error.message });
+  }
   res.send(jobs);
 });
 
