@@ -19,14 +19,14 @@ app.get("/", (req, res) => {
 app.get("/jobs/:country", async (req, res) => {
   const { country } = req.params;
   console.log(country);
-  const jobs = await getJobs("es");
+  const jobs = await getJobs(country);
   res.send(jobs);
 });
 
 app.get("/jobs/:country/category", async (req, res) => {
   const { country } = req.params;
   console.log(country);
-  const jobs = await getJobCategories("es");
+  const jobs = await getJobCategories(country);
   res.send(jobs);
 });
 
